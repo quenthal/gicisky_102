@@ -1,0 +1,64 @@
+write:
+  # No `target:` -- WRITE_SCHEMA takes panel_id; a UI-picked device would add a
+  # device_id key the schema rejects.
+  fields:
+    payload:
+      required: true
+      example: |
+        - type: text
+          value: Hello World!
+          x: 10
+          y: 10
+          size: 40
+      default:
+        - type: text
+          value: Hello World!
+          x: 10
+          y: 10
+          size: 40
+      selector:
+        object:
+    panel_id:
+      required: false
+      example: "008b"
+      selector:
+        text:
+    compress:
+      required: false
+      example: "true"
+      selector:
+        boolean:
+    threshold:
+      required: false
+      example: 128
+      selector:
+        number:
+          min: 0
+          max: 255
+          step: 1
+    red_threshold:
+      required: false
+      example: 170
+      selector:
+        number:
+          min: 0
+          max: 255
+          step: 1
+    rotate:
+      required: false
+      example: "0"
+      selector:
+        number:
+          min: 0
+          max: 270
+          step: 90
+    background:
+      required: false
+      example: white
+      selector:
+        select:
+          options:
+            - "white"
+            - "black"
+            - "red"
+            - "yellow"

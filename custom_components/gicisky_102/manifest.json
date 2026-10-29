@@ -1,0 +1,21 @@
+{
+  "domain": "gicisky_102",
+  "name": "Gicisky 10.2\" (MQTT bridge)",
+  "codeowners": [
+    "@quenthal"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "mqtt"
+  ],
+  "documentation": "https://github.com/quenthal/gicisky_102",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/quenthal/gicisky_102/issues",
+  "requirements": [
+    "qrcode",
+    "python-barcode",
+    "pystrich"
+  ],
+  "version": "1.0.0"
+}

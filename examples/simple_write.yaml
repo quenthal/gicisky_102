@@ -1,0 +1,13 @@
+# Minimal example for Home Assistant Developer Tools -> Actions
+# Replace panel_id with your configured panel ID, or omit for a single panel.
+action: gicisky_102.write
+data:
+  panel_id: "008b"
+  background: white
+  payload:
+    - type: text
+      value: "Hello from Home Assistant"
+      x: 30
+      y: 30
+      size: 30
+      color: black

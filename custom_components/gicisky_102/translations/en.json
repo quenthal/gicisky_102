@@ -1,0 +1,64 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Gicisky 10.2\" panel",
+        "description": "Configure the panel driven via the ESP32 MQTT bridge.",
+        "data": {
+          "name": "Name",
+          "panel_id": "Panel ID (MQTT topic key, e.g. 008b)"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "This panel is already configured."
+    }
+  },
+  "services": {
+    "write": {
+      "name": "Write to panel",
+      "description": "Render an element list inside Home Assistant and push it to the 10.2\" panel via the MQTT bridge.",
+      "fields": {
+        "payload": {
+          "name": "Payload",
+          "description": "List of renderer elements (text, image, plot, diagram, qrcode, ...)."
+        },
+        "panel_id": {
+          "name": "Panel ID",
+          "description": "Target panel id. Omit if only one panel is configured."
+        },
+        "compress": {
+          "name": "Compression2 (QuickLZ)",
+          "description": "Override the encoding for this call: compression2/QuickLZ (fast, ~45-70 KB) or per-column (fallback, 162 KB). Omit to use the default from the integration's Configure dialog."
+        },
+        "threshold": {
+          "name": "Black threshold",
+          "description": "Black/white luminance cutoff (0-255). Default: 128."
+        },
+        "red_threshold": {
+          "name": "Red threshold",
+          "description": "Red detection cutoff (0-255). Default: 170."
+        },
+        "rotate": {
+          "name": "Rotate",
+          "description": "Renderer-level rotation (0, 90, 180, 270). Leave at 0 for landscape authoring."
+        },
+        "background": {
+          "name": "Background",
+          "description": "Canvas background color (white, black, red, yellow). Default: white."
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Gicisky 10.2\" options",
+        "description": "Applied immediately -- no Home Assistant restart needed.",
+        "data": {
+          "compress": "Use compression2/QuickLZ by default (~45-70 KB push instead of 162 KB)"
+        }
+      }
+    }
+  }
+}
